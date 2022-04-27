@@ -1,0 +1,12 @@
+
+
+@media screen and (max-width: 991px) {
+	/* #responsive-navbar-nav{
+		background-color: rgb(255, 255, 255);
+	} */
+	.navbar{
+		background-color: rgb(250, 250, 250);
+		position: static;
+	}
+	
+}

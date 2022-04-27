@@ -1,0 +1,17 @@
+.banner{
+	position: relative;
+	background: url(/src/images/Banner3.png) no-repeat center center;
+	background-size: cover;
+	height: 500px;
+	overflow: hidden;
+}
+.banner-title{
+	position: absolute;
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	color: white;
+}
+.input-field{
+	width: 400px;
+}

@@ -15,3 +15,16 @@
 .input-field{
 	width: 400px;
 }
+
+@media screen and (max-width: 550px) {
+	.input-field{
+		width: 300px;
+	}
+		
+}
+@media screen and (max-width: 350px) {
+	.input-field{
+		width: 260px;
+	}
+		
+}

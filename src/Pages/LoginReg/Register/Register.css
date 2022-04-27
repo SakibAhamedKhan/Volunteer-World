@@ -1,0 +1,68 @@
+.register{
+	margin: 50px;
+}
+.register img {
+	margin-bottom: 30px;
+}
+.register-form-div{
+	width: 500px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.regsiter-form input{
+	height: 40px;
+	padding: 5px 10px;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	display: block;
+	width: 400px;
+	margin: 20px 0;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+
+@media screen and (max-width: 600px) {
+	.register-form-div{
+		width: 400px;
+	}
+	.regsiter-form input{
+		width: 300px;
+	}
+}
+@media screen and (max-width: 450px) {
+	.register-form-div{
+		width: 350px;
+	}
+	.regsiter-form input{
+		width: 290px;
+	}
+}
+@media screen and (max-width: 400px) {
+	.register-form-div{
+		width: 300px;
+	}
+	.regsiter-form input{
+		width: 250px;
+	}
+}
+@media screen and (max-width: 330px) {
+	.register-form-div{
+		width: 270px;
+	}
+	.regsiter-form input{
+		width: 220px;
+	}
+}
+@media screen and (max-width: 300px) {
+	.register-form-div{
+		width: 250px;
+	}
+	.regsiter-form input{
+		width: 200px;
+	}
+}

@@ -13,7 +13,7 @@
 	justify-content: center;
 	align-items: center;
 }
-.regsiter-form input{
+.regsiter-form input {
 	height: 40px;
 	padding: 5px 10px;
 	border: none;
@@ -25,12 +25,15 @@
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
 }
+.error-message{
+	width: 400px;
+}
 
 @media screen and (max-width: 600px) {
 	.register-form-div{
 		width: 400px;
 	}
-	.regsiter-form input{
+	.regsiter-form input, .error-message{
 		width: 300px;
 	}
 }
@@ -38,7 +41,7 @@
 	.register-form-div{
 		width: 350px;
 	}
-	.regsiter-form input{
+	.regsiter-form input, .error-message{
 		width: 290px;
 	}
 }
@@ -46,7 +49,7 @@
 	.register-form-div{
 		width: 300px;
 	}
-	.regsiter-form input{
+	.regsiter-form input, .error-message{
 		width: 250px;
 	}
 }
@@ -54,7 +57,7 @@
 	.register-form-div{
 		width: 270px;
 	}
-	.regsiter-form input{
+	.regsiter-form input, .error-message{
 		width: 220px;
 	}
 }
@@ -62,7 +65,7 @@
 	.register-form-div{
 		width: 250px;
 	}
-	.regsiter-form input{
+	.regsiter-form input, .error-message{
 		width: 200px;
 	}
 }

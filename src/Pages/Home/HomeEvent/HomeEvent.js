@@ -17,6 +17,7 @@ const HomeEvent = ({event}) => {
 			</div>
 			<div style={{background: `${color[index]}`}} className='event-title'>
 				<h4 className='text-white'>{title}</h4>
+				<h6 className='text-white'>12.10.2022</h6>
 			</div>
 		</div>
 	);

@@ -1,0 +1,25 @@
+.profile{
+	margin-top: 150px;
+	background-color: white;	
+	border-radius: 5px;
+	padding: 50px;
+	width: 500px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+@media screen and (max-width: 550px) {
+	.profile{
+		width: 400px;
+	}
+}
+@media screen and (max-width: 450px) {
+	.profile{
+		width: 320px;
+	}
+}
+@media screen and (max-width: 350px) {
+	.profile{
+		width: 240px;
+		padding: 30px 20px;
+	}
+}

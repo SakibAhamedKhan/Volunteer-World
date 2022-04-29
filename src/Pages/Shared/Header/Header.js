@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
+import Loading from '../Loading/Loading';
 
 const Header = () => {
 	const [user, loading, error] = useAuthState(auth);
@@ -17,7 +18,6 @@ const Header = () => {
 		const str = user.displayName;
 		userObj = JSON.parse(str);
 	}
-
 	const changeNavBackground = () => {
 		if(window.scrollY >= 80){
 			setNavbar(true);
@@ -34,14 +34,14 @@ const Header = () => {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="ms-auto">
-						<Nav.Link href="#deets" className='fs-6 mx-2 menu-part'>Home</Nav.Link>
-						<Nav.Link href="#donation" className='fs-6 mx-2 menu-part'>Donation</Nav.Link>
-						<Nav.Link href="#events" className='fs-6 mx-2 menu-part'>Events</Nav.Link>
-						<Nav.Link href="#blog" className='fs-6 mx-2 menu-part'>Blog</Nav.Link>
+						<Nav.Link as={Link} to="/" className='fs-6 mx-2 menu-part text-center'>Home</Nav.Link>
+						<Nav.Link href="#donation" className='fs-6 mx-2 menu-part text-center'>Donation</Nav.Link>
+						<Nav.Link href="#events" className='fs-6 mx-2 menu-part text-center'>Events</Nav.Link>
+						<Nav.Link href="#blog" className='fs-6 mx-2 menu-part text-center'>Blog</Nav.Link>
 						{
 							user?
-							<div className='d-flex align-items-center justify-content-center'>
-								<Nav.Link href="#blog" className='fs-6 mx-2 menu-part w-100'>{userObj?.name}</Nav.Link>
+							<div className='user-navbar'>
+								<Nav.Link as={Link} to="/user" className='fs-6 mx-2 menu-part w-100 text-center'>{userObj?.name}</Nav.Link>
 								<button onClick={() => signOut(auth)} className='btn btn-dark mx-gl-3 mx-auto my-2 my-lg-0 px-4 w-50'>Logout</button>
 							</div>
 							:

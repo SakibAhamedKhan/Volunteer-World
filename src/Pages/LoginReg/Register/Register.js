@@ -4,6 +4,7 @@ import logo from '../../../images/Logo/Volunteer-logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
 	const [
@@ -20,7 +21,10 @@ const Register = () => {
 		errorElements = <p className='text-danger error-message'>{createEmailError?.message} {updateProfileError?.message}</p>;
 	}
 	if(user){
-		console.log(user);
+		navigate('/');
+	}
+	if(loading || updating){
+		return <Loading></Loading>
 	}
 	const handleSubmit = async(event) => {
 		event.preventDefault();

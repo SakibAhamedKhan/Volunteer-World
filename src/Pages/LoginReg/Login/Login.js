@@ -4,6 +4,7 @@ import logo from '../../../images/Logo/Volunteer-logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -21,6 +22,9 @@ const Login = () => {
 	}
 	if(user){
 		navigate('/');
+	}
+	if(loading){
+		return <Loading></Loading>
 	}
 	const handleSubmit = async(event) => {
 		event.preventDefault();

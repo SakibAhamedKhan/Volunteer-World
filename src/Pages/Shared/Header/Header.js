@@ -36,7 +36,7 @@ const Header = () => {
 					<Nav className="ms-auto">
 						<Nav.Link as={Link} to="/" className='fs-6 mx-2 menu-part text-center'>Home</Nav.Link>
 						<Nav.Link href="#donation" className='fs-6 mx-2 menu-part text-center'>Donation</Nav.Link>
-						<Nav.Link href="#events" className='fs-6 mx-2 menu-part text-center'>Events</Nav.Link>
+						<Nav.Link as={Link} to="/events" className='fs-6 mx-2 menu-part text-center'>Events</Nav.Link>
 						<Nav.Link href="#blog" className='fs-6 mx-2 menu-part text-center'>Blog</Nav.Link>
 						{
 							user?

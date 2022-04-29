@@ -1,0 +1,24 @@
+.user-event{
+	background-color: white;
+	border-radius: 5px;
+	padding: 20px;
+	margin: 10px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+}
+.user-event-part1{
+	justify-self: left;
+}
+.user-event-part2{
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.user-event-cancel-btn{
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}

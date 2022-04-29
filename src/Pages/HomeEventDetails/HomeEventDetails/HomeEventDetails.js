@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useGetDataById from '../../../hooks/useGetDataById';
 import Header from '../../Shared/Header/Header';
@@ -12,9 +12,21 @@ const HomeEventDetails = () => {
 	const {eventId} = useParams();
 	const [event] = useGetDataById(eventId);
 	const [user, loading, error] = useAuthState(auth);
+	const [join, setJoin] = useState(false);
 	
-	console.log(user);
+	// console.log(user);
+
+	useEffect( () => {
+		const url = `http://localhost:5000/userEventCheck/${eventId}/${user.email}`;
+		fetch(url)
+		.then(res => res.json())
+		.then(data => {
+			setJoin(data?.already);
+		})
+	},[eventId]);
+
 	const addUserEvent = async() => {
+
 		const addEvent = {
 			email: user.email,
 			eventId: eventId
@@ -50,8 +62,8 @@ const HomeEventDetails = () => {
 					});
 			}
 		})
+		setJoin(true);
 	}
-	console.log(event);
 	if(Object.keys(event).length===0){
 		return  <Loading></Loading>;
 	}
@@ -71,7 +83,12 @@ const HomeEventDetails = () => {
 						<h2 className=''>{event?.title}</h2>
 						<h6 className='mb-4'>Event Time: {new Date(parseInt(event?.date)).toUTCString()}</h6>
 						<p className='' style={{textAlign:'justify'}}> <span className='fw-bold'>About this event:</span> {event.descrption}</p>
-						<button onClick={addUserEvent} className='btn btn-success my-3'>Join This Event</button>
+						{
+							join?
+							<button onClick={addUserEvent} className='btn btn-success my-3' disabled>Already Joined</button>
+							:
+							<button onClick={addUserEvent} className='btn btn-success my-3'>Join This Event</button>
+						}
 					</div>
 					<div className='home-event-part2'>
 						<img height={300} src={event?.image} alt="" />

@@ -17,7 +17,7 @@ const HomeEventDetails = () => {
 	// console.log(user);
 
 	useEffect( () => {
-		const url = `http://localhost:5000/userEventCheck/${eventId}/${user.email}`;
+		const url = `http://localhost:5000/userEventCheck/${eventId}/${user?.email}`;
 		fetch(url)
 		.then(res => res.json())
 		.then(data => {

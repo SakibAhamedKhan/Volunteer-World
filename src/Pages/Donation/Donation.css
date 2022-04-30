@@ -1,0 +1,108 @@
+.donation{
+	margin-top: 100px;
+	margin-bottom: 100px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	padding: 50px;
+}
+.donation-parts{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	grid-gap: 40px;
+}
+
+.donation-part1{
+	justify-self: right;
+}
+
+.donation-part2{
+	
+}
+.rounded-btn{
+	padding: 10px 20px;
+	outline: none !important;
+	background-color: white;
+	border-radius: 5px;
+}
+.btn-active{
+	background-color: green;
+	color: white;
+	
+}
+.amount-input{
+	outline: none;
+	padding: 5px 10px;
+	border: 3px solid rgb(231, 230, 230);
+	border-radius: 2px;
+	display: block;
+}
+.submit-btn{
+	background-color: rgb(20, 19, 19);
+	border: 3px solid rgb(0, 0, 0);
+	color: white;
+	border-radius: 5px;
+	padding: 10px 20px;
+}
+
+@media screen and (max-width: 992px) {
+	.donation-parts{
+		grid-template-columns: 1fr;
+	}
+	.donation-part1{
+		justify-self: center;
+	}
+	
+	.donation-part2{
+		justify-self: center;
+	}
+	.donation-part2 h5{
+		text-align: center;
+	}
+}
+@media screen and (max-width: 768px ) {
+	.donation-part1 img{
+		width: 400px;
+	}
+}
+@media screen and (max-width: 576px ) {
+	.donation{
+		width: 450px;
+	}
+	.donation-part1 img{
+		width: 350px;
+	}
+}
+@media screen and (max-width: 470px ) {
+	.donation{
+		width: 400px;
+	}
+	.donation-part1 img{
+		width: 300px;
+	}
+}
+@media screen and (max-width: 420px ) {
+	.donation{
+		width: 350px;
+		padding: 40px 20px;
+	}
+	.donation-part1 img{
+		width: 250px;
+	}
+}
+@media screen and (max-width: 370px ) {
+	.donation{
+		width: 300px;
+	}
+	.donation-part1 img{
+		width: 210px;
+	}
+}
+@media screen and (max-width: 320px ) {
+	.donation{
+		width: 265px;
+		padding: 30px 10px;
+	}
+	
+}

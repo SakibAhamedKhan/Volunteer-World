@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Events from './Pages/Events/Events/Events';
 import Blog from './Pages/Blog/Blog';
+import Donation from './Pages/Donation/Donation';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/eventDetails/:eventId' element={<HomeEventDetails></HomeEventDetails>}></Route>
         <Route path='/events' element={<Events></Events>}></Route>
         <Route path='/blogs' element={<Blog></Blog>}></Route>
+        <Route path='/donation' element={<Donation></Donation>}></Route>
       </Routes>
 
       <ToastContainer />

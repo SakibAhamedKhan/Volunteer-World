@@ -6,8 +6,8 @@ const Banner = () => {
 	return (
 		<div className='banner'>
 			<div className='banner-title'>
-				<h2 className='text-dark fw-bold'>WE GROW BY HELPING PEOPLE IN NEED.</h2>
-				<InputGroup  className="mx-auto my-4 input-field">
+				<h2 className='text-dark fw-bold text-center px-2'>WE GROW BY HELPING PEOPLE IN NEED.</h2>
+				<InputGroup  className="mx-auto my-4 input-field px-2">
 					<FormControl
 					placeholder="Search..."
 					aria-label="Search"

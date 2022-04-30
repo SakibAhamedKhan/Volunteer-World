@@ -4,3 +4,14 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
+
+@media screen and (max-width: 992px) {
+	.user-events{
+		grid-template-columns: 1fr;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+}
+@media screen and (max-width: 400px) {
+	
+}

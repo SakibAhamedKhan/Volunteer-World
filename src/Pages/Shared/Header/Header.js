@@ -19,7 +19,7 @@ const Header = () => {
 		userObj = JSON.parse(str);
 	}
 	const changeNavBackground = () => {
-		if(window.scrollY >= 80){
+		if(window.scrollY >= 30){
 			setNavbar(true);
 		} else{
 			setNavbar(false);

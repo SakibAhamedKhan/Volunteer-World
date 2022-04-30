@@ -1,10 +1,16 @@
+import { async } from '@firebase/util';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../../firebase.init';
 import useGetDataById from '../../../hooks/useGetDataById';
 import Loading from '../../Shared/Loading/Loading';
 import './Event.css'
 
-const Event = ({userEvent}) => {
-	console.log(userEvent);
+const Event = ({userEvent, handleRefreshAfterUpdate}) => {
+	// console.log(userEvent);
+	// console.log(handleRefreshAfterUpdate);
+	const [user, loading, error] = useAuthState(auth);
 	const [event] = useGetDataById(userEvent?.eventId);
 	let day='';
 	let month ='';
@@ -22,6 +28,18 @@ const Event = ({userEvent}) => {
 			month = '0'+month;
 		}
 	}
+
+	const handleCancel = async() => {
+		fetch(`http://localhost:5000/userEventCancel/${event?._id}/${user?.email}`, {
+			method:'DELETE'
+		})
+		.then(res => res.json())
+		.then(data => {
+			toast(`${event.title} Event is Canceled`);
+		})
+		handleRefreshAfterUpdate();
+	}
+	console.log(event);
 	return (
 		<div>
 			{
@@ -37,8 +55,8 @@ const Event = ({userEvent}) => {
 							<h4>{event?.title}</h4>
 							<p>{day}.{month}.{new Date(parseInt(event?.date)).getFullYear()}</p>
 						</div>
-						<div className='user-event-cancel-btn '>
-							<button className='btn btn-secondary'>Cancel</button>
+						<div className='user-event-cancel-btn'>
+							<button onClick={handleCancel} className='btn btn-secondary'>Cancel</button>
 						</div>
 					</div>
 				</div>

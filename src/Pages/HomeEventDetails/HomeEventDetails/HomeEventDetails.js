@@ -20,7 +20,7 @@ const HomeEventDetails = () => {
 	// console.log(user);
 
 	useEffect( () => {
-		const url = `http://localhost:5000/userEventCheck/${eventId}/${user?.email}`;
+		const url = `https://powerful-everglades-73325.herokuapp.com/userEventCheck/${eventId}/${user?.email}`;
 		fetch(url)
 		.then(res => res.json())
 		.then(data => {
@@ -35,7 +35,7 @@ const HomeEventDetails = () => {
 				email: user?.email,
 				eventId: eventId
 			}
-			fetch('http://localhost:5000/userEvents', {
+			fetch('https://powerful-everglades-73325.herokuapp.com/userEvents', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json'

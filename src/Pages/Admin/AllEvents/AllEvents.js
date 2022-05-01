@@ -8,7 +8,7 @@ const AllEvents = ({event, handleRefresh}) => {
 	const handleEventDelete = () => {
 		const confirm = window.confirm(`Are you sure to remove (${event?.title}) Event?`);
 		if(confirm){
-			const url = `http://localhost:5000/eventDelete/${event?._id}`;
+			const url = `https://powerful-everglades-73325.herokuapp.com/eventDelete/${event?._id}`;
 			fetch(url, {
 				method:'DELETE'
 			})

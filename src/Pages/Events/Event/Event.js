@@ -30,7 +30,7 @@ const Event = ({userEvent, handleRefreshAfterUpdate}) => {
 	}
 
 	const handleCancel = async() => {
-		fetch(`http://localhost:5000/userEventCancel/${event?._id}/${user?.email}`, {
+		fetch(`https://powerful-everglades-73325.herokuapp.com/userEventCancel/${event?._id}/${user?.email}`, {
 			method:'DELETE'
 		})
 		.then(res => res.json())

@@ -25,7 +25,7 @@ const AdminAddEvent = () => {
 		}
 		console.log(title, descrption, dateInNumber, image);
 
-		fetch('http://localhost:5000/eventAdd', {
+		fetch('https://powerful-everglades-73325.herokuapp.com/eventAdd', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json'

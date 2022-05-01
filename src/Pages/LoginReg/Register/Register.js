@@ -47,7 +47,7 @@ const Register = () => {
 			date: dateInNumber,
 			organization: organization
 		};
-		fetch('http://localhost:5000/userAccount', {
+		fetch('https://powerful-everglades-73325.herokuapp.com/userAccount', {
 			method: 'POST',
 			headers:{
 				'content-type': 'application/json'

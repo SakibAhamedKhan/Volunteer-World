@@ -29,7 +29,11 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/adminlogin' element={<AdminLogin></AdminLogin>}></Route>
-        <Route path='/user' element={<UserProfile></UserProfile>}></Route>
+        <Route path='/user' element={
+          <RequireAuthUser>
+            <UserProfile></UserProfile>
+          </RequireAuthUser>
+        }></Route>
         <Route path='/eventDetails/:eventId' element={<HomeEventDetails></HomeEventDetails>}></Route>
         <Route path='/events' element={
           <RequireAuthUser>

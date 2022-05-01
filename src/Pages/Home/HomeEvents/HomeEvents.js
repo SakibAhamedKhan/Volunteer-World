@@ -10,7 +10,7 @@ const HomeEvents = () => {
 	const [refresh, setRefresh] = useState('');
 
 	useEffect( () =>{
-		fetch('http://localhost:5000/events')
+		fetch('https://powerful-everglades-73325.herokuapp.com/events')
 		.then(res => res.json())
 		.then(data => setEvents(data));
 		console.log('eventRef');

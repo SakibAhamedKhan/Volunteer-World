@@ -4,7 +4,7 @@ const useGetDataById = (_id) => {
 	const [event, setEvent] = useState({});
 
 	useEffect( () => {
-		const url = `http://localhost:5000/events/${_id}`;
+		const url = `https://powerful-everglades-73325.herokuapp.com/events/${_id}`;
 		fetch(url)
 		.then(res => res.json())
 		.then(data => setEvent(data));

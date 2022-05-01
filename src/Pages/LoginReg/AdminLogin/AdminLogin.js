@@ -45,7 +45,7 @@ const AdminLogin = () => {
 		const password = event.target.password.value;
 	
 		// console.log(email, password);
-		// fetch(`http://localhost:5000/adminEmailPassCheck/${email}/${password}`)
+		// fetch(`https://powerful-everglades-73325.herokuapp.com/adminEmailPassCheck/${email}/${password}`)
 		// .then(res => res.json())
 		// .then(data => {
 		// 	if(data.login === true){

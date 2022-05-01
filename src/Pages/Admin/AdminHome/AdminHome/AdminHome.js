@@ -13,7 +13,7 @@ const AdminHome = () => {
 	const [users, setUsers] = useState([]);
 
 	useEffect( () => {
-		fetch('http://localhost:5000/userRegistered')
+		fetch('https://powerful-everglades-73325.herokuapp.com/userRegistered')
 		.then(res => res.json())
 		.then(data => {
 			setUsers(data);

@@ -11,7 +11,7 @@ const Events = () => {
 	const [refresh, setRefresh] = useState(0);
 
 	useEffect( () => {
-		const url = `http://localhost:5000/userEvents/${user?.email}`;
+		const url = `https://powerful-everglades-73325.herokuapp.com/userEvents/${user?.email}`;
 		fetch(url)
 		.then(res => res.json())
 		.then(data => setUserEvents(data));

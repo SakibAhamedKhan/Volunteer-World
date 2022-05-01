@@ -15,7 +15,7 @@ const Banner = ({handleSeacrhFromUser}) => {
 		searchfromDatabase();
 	}
 	const searchfromDatabase = () => {
-		fetch(`http://localhost:5000/eventSearch?search=${searchTyped}`)
+		fetch(`https://powerful-everglades-73325.herokuapp.com/eventSearch?search=${searchTyped}`)
 		.then(res => res.json())
 		.then(data => {
 			if(data.length===0){

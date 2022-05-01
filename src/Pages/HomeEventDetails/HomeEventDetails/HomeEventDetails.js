@@ -7,12 +7,14 @@ import Loading from '../../Shared/Loading/Loading';
 import auth from '../../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import { Modal } from 'react-bootstrap';
 
 const HomeEventDetails = () => {
 	const {eventId} = useParams();
 	const [event] = useGetDataById(eventId);
 	const [user, loading, error] = useAuthState(auth);
 	const [join, setJoin] = useState(false);
+	const [lgShow, setLgShow] = useState(false);
 	const navigate = useNavigate();
 	
 	// console.log(user);
@@ -28,7 +30,7 @@ const HomeEventDetails = () => {
 
 	const addUserEvent = async() => {
 		
-		if(user){
+		if(user && (user?.email).toLocaleLowerCase() !== 'sakibahamedkhan@gmail.com'){
 			const addEvent = {
 				email: user?.email,
 				eventId: eventId
@@ -72,7 +74,7 @@ const HomeEventDetails = () => {
 	}
 
 	const handleSeeMore = () => {
-
+		setLgShow(true);
 	}
 
 	if(Object.keys(event).length===0){
@@ -112,7 +114,30 @@ const HomeEventDetails = () => {
 					<div className='home-event-part2'>
 						<img height={300} src={event?.image} alt="" />
 					</div>
+					<Modal
+						size="lg"
+						show={lgShow}
+						onHide={() => setLgShow(false)}
+						aria-labelledby="example-modal-sizes-title-lg"
+						style={{height:'600px', marginTop:'50px'}}
+					>
+						<Modal.Header closeButton>
+						<Modal.Title id="example-modal-sizes-title-lg">
+							{event?.title}
+						</Modal.Title>
+						</Modal.Header>
+						<Modal.Body>
+							<div style={{height:'400px', overflowY:'scroll'}}>
+								<h5>About this event:</h5>
+								<p style={{textAlign:'justify',paddingRight:'10px'}}>
+								{event?.descrption}
+								</p>
+							</div>
+							
+						</Modal.Body>
+					</Modal>
 					</div>
+					
 				}
 				
 			</div>

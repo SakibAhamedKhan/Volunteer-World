@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css'
 import logo from '../../../images/Logo/Volunteer-logo.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
@@ -14,14 +14,19 @@ const Login = () => {
 		loading,
 		loginEmailError,
 	  ] = useSignInWithEmailAndPassword(auth);
+	const location = useLocation();
+	const from = location.state?.from?.pathname || '/';
 
 	let errorElements;
 
-	if(loginEmailError){
+	if(loginEmailError || (user?.user?.email) === 'sakibahamedkhan@gmail.com'){
 		errorElements = <p className='text-danger error-message'>{loginEmailError?.message}</p>;
+		if((user?.user?.email).toLocaleLowerCase() === 'sakibahamedkhan@gmail.com'){
+			errorElements = <p className='text-danger error-message'>Wrong Email</p>;
+		}
 	}
-	if(user){
-		navigate('/');
+	if(user && (user?.user?.email).toLocaleLowerCase() !== 'sakibahamedkhan@gmail.com'){
+		navigate(from, {replace:true});
 	}
 	if(loading){
 		return <Loading></Loading>

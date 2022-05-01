@@ -79,17 +79,17 @@ const AdminAddEvent = () => {
 					<form onSubmit={handleAddEventSubmit} className='addEvent-parts'>
 						<div>
 							<h5>Event Title</h5>
-							<input type="text" name='title' placeholder='Enter Title' />
+							<input type="text" name='title' placeholder='Enter Title' required/>
 
 							<h5>Description</h5>
-							<textarea type="text" name='descrption' placeholder='Enter Description' />
+							<textarea type="text" name='descrption' placeholder='Enter Description' required/>
 						</div>
 						<div>
 							<h5>Event Date</h5>
-							<input type="date" name='date'/>
+							<input type="date" name='date' required/>
 							
 							<h5>Banner</h5>
-							<input type="text" name='image' placeholder='Banner image link'/>
+							<input type="text" name='image' placeholder='Banner image link' required/>
 						</div>
 						<div>
 

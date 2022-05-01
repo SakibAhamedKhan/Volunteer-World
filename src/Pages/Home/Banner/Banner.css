@@ -12,19 +12,25 @@
   	transform: translate(-50%, -50%);
 	color: white;
 }
-.input-field{
-	width: 400px;
+.input-field input{
+	width: 300px;
 }
 
 @media screen and (max-width: 550px) {
-	.input-field{
-		width: 300px;
+	.input-field input{
+		width: 260px;
 	}
 		
 }
-@media screen and (max-width: 350px) {
-	.input-field{
-		width: 260px;
+@media screen and (max-width: 380px) {
+	.input-field input{
+		width: 200px;
+	}
+		
+}
+@media screen and (max-width: 320px) {
+	.input-field input{
+		width: 150px;
 	}
 		
 }

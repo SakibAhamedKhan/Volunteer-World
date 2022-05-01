@@ -8,7 +8,7 @@ const Home = () => {
 	return (
 		<>
 			<Header></Header>
-			<Banner></Banner>
+			{/* <Banner></Banner> */}
 			<HomeEvents></HomeEvents>
 		</>
 	);

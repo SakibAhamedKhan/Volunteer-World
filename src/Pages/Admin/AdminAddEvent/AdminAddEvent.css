@@ -1,0 +1,22 @@
+.addEvent-parts{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
+}
+
+.addEvent-parts input{
+	outline: none;
+	width: 400px;
+	padding: 8px 10px;
+	border: 1px solid rgb(225, 225, 225);
+	border-radius: 5px;
+	margin-bottom: 30px;
+	margin-top: 5px;
+}
+.addEvent-parts textarea{
+	outline: none;
+	width: 400px;
+	padding: 8px 10px; 
+	border: 1px solid rgb(225, 225, 225);
+	border-radius: 5px;
+}

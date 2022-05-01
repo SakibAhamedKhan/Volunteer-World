@@ -23,7 +23,16 @@ const Events = () => {
 	return (
 		<div>
 			<Header></Header>
+			{
+					userEvents.length===0?
+					<div style={{marginTop:'150px'}} className='container mx-auto'>
+						<h4 className='text-center'>No Event Joined</h4>
+					</div>
+					:
+					''
+			}
 			<div className='container user-events'>
+				
 				{
 					userEvents.map(userEvent => <Event
 						key={userEvent._id}

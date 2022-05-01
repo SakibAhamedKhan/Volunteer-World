@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import useGetDataById from '../../../hooks/useGetDataById';
 import Header from '../../Shared/Header/Header';
 import './HomeEventDetails.css'
@@ -13,6 +13,7 @@ const HomeEventDetails = () => {
 	const [event] = useGetDataById(eventId);
 	const [user, loading, error] = useAuthState(auth);
 	const [join, setJoin] = useState(false);
+	const navigate = useNavigate();
 	
 	// console.log(user);
 
@@ -26,44 +27,54 @@ const HomeEventDetails = () => {
 	},[eventId]);
 
 	const addUserEvent = async() => {
-
-		const addEvent = {
-			email: user.email,
-			eventId: eventId
-		}
-		fetch('http://localhost:5000/userEvents', {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json'
-			},
-			body: JSON.stringify(addEvent)
-		})
-		.then(res => res.json())
-		.then(data => {
-			if(data?.message){
-				toast.warn(data?.message, {
-					position: "top-right",
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					});
-			} else{
-				toast.success(`Joined ${event.title} Event Successfully`, {
-					position: "top-right",
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					});
+		
+		if(user){
+			const addEvent = {
+				email: user?.email,
+				eventId: eventId
 			}
-		})
-		setJoin(true);
+			fetch('http://localhost:5000/userEvents', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify(addEvent)
+			})
+			.then(res => res.json())
+			.then(data => {
+				if(data?.message){
+					toast.warn(data?.message, {
+						position: "top-right",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						});
+				} else{
+					toast.success(`Joined ${event.title} Event Successfully`, {
+						position: "top-right",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						});
+				}
+			})
+			setJoin(true);
+		} else{
+			navigate('/login');
+		}
+		
 	}
+
+	const handleSeeMore = () => {
+
+	}
+
 	if(Object.keys(event).length===0){
 		return  <Loading></Loading>;
 	}
@@ -82,7 +93,15 @@ const HomeEventDetails = () => {
 					<div className='home-event-part1'>
 						<h2 className=''>{event?.title}</h2>
 						<h6 className='mb-4'>Event Time: {new Date(parseInt(event?.date)).toUTCString()}</h6>
-						<p className='' style={{textAlign:'justify'}}> <span className='fw-bold'>About this event:</span> {event.descrption}</p>
+						<p className='' style={{textAlign:'justify'}}> <span className='fw-bold'>About this event:</span> {
+							(event?.descrption).length>=800 ?
+							<>
+								<p>{(event?.descrption).slice(0,500)+'...'}</p>
+								<button onClick={handleSeeMore} className='btn btn-white text-danger border border-1 border-danger d-block mx-auto mt-4'>See More</button>
+							</>
+							:
+							<p>{event?.descrption}</p>
+						}</p>
 						{
 							join?
 							<button onClick={addUserEvent} className='btn btn-success my-3' disabled>Already Joined</button>

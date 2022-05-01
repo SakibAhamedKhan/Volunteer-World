@@ -35,9 +35,30 @@ const Register = () => {
 		const organization = event.target.organization.value;
 		const dateInNumber = new Date(date).getTime();
 
+		
+
 		console.log(email, name, password, date, organization, dateInNumber);
 		await createUserWithEmailAndPassword(email, password);
 		await updateProfile({displayName:`{"date":"${dateInNumber}","organization":"${organization}","name":"${name}"}`});
+	
+		const doc = {
+			email: email,
+			name: name,
+			date: dateInNumber,
+			organization: organization
+		};
+		fetch('http://localhost:5000/userAccount', {
+			method: 'POST',
+			headers:{
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(doc)
+		})
+		.then(res => res.json())
+		.then(data => {
+			console.log(data);
+		})
+	
 	}
 	return (
 		<div className='container register mx-auto'>

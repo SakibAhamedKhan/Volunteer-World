@@ -1,0 +1,14 @@
+.all-event{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgb(255, 255, 255);
+	margin: 20px 0;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.btn:focus {
+	box-shadow: none;
+}
+  

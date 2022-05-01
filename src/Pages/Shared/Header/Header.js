@@ -14,10 +14,13 @@ const Header = () => {
 	const navigate = useNavigate();
 
 	let userObj = {}
-	if(user){
+	if(user && user.email !== 'sakibahamedkhan@gmail.com'){
 		const str = user.displayName;
 		userObj = JSON.parse(str);
 	}
+	// if(loading){
+	// 	return;
+	// }
 	const changeNavBackground = () => {
 		if(window.scrollY >= 30){
 			setNavbar(true);
@@ -39,10 +42,10 @@ const Header = () => {
 						<Nav.Link as={Link} to="/events" className='fs-6 mx-2 menu-part text-center'>Events</Nav.Link>
 						<Nav.Link as={Link} to="/blogs" className='fs-6 mx-2 menu-part text-center'>Blogs</Nav.Link>
 						{
-							user?
+							(user && user.email !== 'sakibahamedkhan@gmail.com')?
 							<div className='user-navbar'>
 								<Nav.Link as={Link} to="/user" className='fs-6 mx-2 menu-part w-100 text-center'>{userObj?.name}</Nav.Link>
-								<button onClick={() => signOut(auth)} className='btn btn-dark mx-gl-3 mx-auto my-2 my-lg-0 px-4 w-50'>Logout</button>
+								<button onClick={() => signOut(auth)} className='btn btn-dark mx-lg-3 mx-auto my-2 my-lg-0 px-4 w-50'>Logout</button>
 							</div>
 							:
 							<>
